@@ -1,0 +1,6 @@
+M140 S70                      ; Set bed temp to 70
+G10 P0 S230                   ; Set extruder temp (tool 0) to 230
+;M116                          ; Wait for tempareatures to be reached
+;M117 PETG Preheat complete    ; Show message
+
+;Play a tone with M300 Sfreq Ptime and G4 Pdelay>=time commands

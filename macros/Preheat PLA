@@ -1,0 +1,6 @@
+M140 S60                     ; Set bed temp to 60
+G10 P0 S210                  ; Set extruder temp (tool 0) to 210
+;M116                         ; Wait for tempareatures to be reached
+;M117 PLA Preheat complete    ; Show message
+
+;Play a tone with M300 Sfreq Ptime and G4 Pdelay>=time commands

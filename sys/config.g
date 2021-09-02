@@ -21,10 +21,10 @@ M569 P2 S1                                     ; physical drive 2 goes forwards 
 M569 P3 S0                                     ; physical drive 3 goes forwards using default driver timings
 M584 X0 Y1 Z2 E3                               ; set drive mapping
 M350 X16 Y16 Z16 E16 I1                        ; configure microstepping with interpolation
-M92 X80.00 Y80.00 Z400.00 E408.50               ; set steps per mm
+M92 X80.00 Y80.00 Z400.00 E408.50              ; set steps per mm
 M566 X900.00 Y900.00 Z60.00 E120.00            ; set maximum instantaneous speed changes (mm/min)
 M203 X12000.00 Y12000.00 Z600.00 E1200.00      ; set maximum speeds (mm/min)
-M201 X500.00 Y500.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
+M201 X1500.00 Y1500.00 Z20.00 E250.00          ; set accelerations (mm/s^2)
 M906 X580 Y580 Z580 E650 I30                   ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                        ; Set idle timeout
 

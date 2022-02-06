@@ -1,5 +1,7 @@
 if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
 	G28
+else
+	G28 Z
 
 G91                                                  ;Relative positioning
 G1 Z5 F6000                                          ;Raise Z 5mm
@@ -16,7 +18,7 @@ M98 P"config/probe/probe_config.g"                   ;Call probe_config_fast.g m
 G91                                                  ;Relative positioning
 G1 Z5 F6000                                          ;Raise Z 5mm
 G90                                                  ;Absolute positioning
-G1 X0 Y0 F8000                                       ;Go home
+G1 X{move.axes[0].min} Y{move.axes[1].min} F10000    ;Go home
 G91                                                  ;Relative positioning
 G1 Z-5 F6000                                         ;Return Z 5mm
 G90                                                  ;Absolute positioning

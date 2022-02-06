@@ -1,2 +1,2 @@
 G90 ; Absolute positioning
-G1 X117 Y117 Z117
+G1 X117 Y117 Z117 F10000

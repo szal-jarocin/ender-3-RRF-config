@@ -6,7 +6,7 @@
 ; General preferences
 G90                                            ; send absolute coordinates...
 M83                                            ; ...but relative extruder moves
-M550 P"Ender 3 Pro"                             ; set printer name
+M550 P"Ender3Pro"                             ; set printer name
 
 ; Network
 M552 S0
@@ -21,16 +21,21 @@ M569 P2 S1                                     ; physical drive 2 goes forwards 
 M569 P3 S0                                     ; physical drive 3 goes forwards using default driver timings
 M584 X0 Y1 Z2 E3                               ; set drive mapping
 M350 X16 Y16 Z16 E16 I1                        ; configure microstepping with interpolation
-M92 X80.00 Y80.00 Z400.00 E408.50               ; set steps per mm
+M92 X80.00 Y80.00 Z400.00 E410.00              ; set steps per mm
 M566 X900.00 Y900.00 Z60.00 E120.00            ; set maximum instantaneous speed changes (mm/min)
 M203 X12000.00 Y12000.00 Z600.00 E1200.00      ; set maximum speeds (mm/min)
-M201 X500.00 Y500.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
-M906 X580 Y580 Z580 E650 I30                   ; set motor currents (mA) and motor idle factor in per cent
+M201 X1500.00 Y1500.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
+M906 X760 Y760 Z760 E900 I30               ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                        ; Set idle timeout
 
 ; Axis Limits
-M208 X0 Y0 Z0 S1                               ; set axis minima
-M208 X235 Y235 Z250 S0                         ; set axis maxima
+;standard
+;M208 X0 Y0 Z0 S1                               ; set axis minima
+;M208 X235 Y235 Z250 S0                         ; set axis maxima
+;HeroMe
+M208 X0 Y-15 Z0 S1                               ; set axis minima
+M208 X235 Y220 Z250 S0                         ; set axis maxima
+
 
 ; Endstops
 M574 X1 S1 P"xstop"                            ; configure active-high endstop for low end on X via pin xstop
@@ -53,7 +58,7 @@ M143 H0 S80                                    ; set temperature limit for heate
 M308 S1 P"e0temp" Y"thermistor" T100000 B3950  ; configure sensor 1 as thermistor on pin e0temp
 M950 H1 C"e0heat" T1                           ; create nozzle heater output on e0heat and map it to sensor 1
 M307 H1 B0 R2.542 C131.8:129.1 D7.21 S1.00 V24.0    ; disable bang-bang mode for heater and set PID parameters
-M143 H1 S260                                   ; set temperature limit for heater 1 to 260C
+M143 H1 S250                                   ; set temperature limit for heater 1 to 250C
 
 ; Additional temp sensors
 M308 S2 Y"drivers" A"DRIVERS"
@@ -63,7 +68,7 @@ M308 S3 y"mcu-temp" A"MCU"
 M950 F0 C"fan0" Q1000                               ; create fan 0 on pin fan0 and set its frequency
 M106 P0 C"Part Cooling Fan" S0 H-1                  ; set fan 0 value. Thermostatic control is turned off
 M950 F1 C"fan1" Q1000                               ; create fan 1 on pin fan1 and set its frequency
-M106 P1 C"Mainboard Fan" H2:3 L0.2 X1 T35:50  ; set fan 1 value. Thermostatic control is turned on
+M106 P1 C"Mainboard Fan" H2:3 L0.2 X1 T35:50        ; set fan 1 value. Thermostatic control is turned on
 
 ; Tools
 M563 P0 D0 H1 F0                               ; define tool 0

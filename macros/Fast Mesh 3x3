@@ -1,0 +1,25 @@
+if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
+	G28
+else
+	G28 Z
+
+G91                                                  ; Relative positioning
+G1 Z5 F6000                                          ; Raise Z 5mm
+G90                                                  ; Absolute positioning
+G1 X{10 - sensors.probes[0].offsets[0]} Y{10 - sensors.probes[0].offsets[1]} F8000                                ;Move to first mesh point
+G91                                                  ; Relative positioning
+G1 Z-5 F6000                                         ; Return Z 5mm
+G90                                                  ; Absolute positioning
+M98 P"config/probe/probe_config_fast.g"              ; Call probe_config_fast.g module (Switch to Fast Probe Mode)
+M98 P"config/probe/mesh_grid_3x3.g"                  ; Configure 3-point mesh grid for platform leveling
+M98 P"deployprobe.g"                                 ; Deploy the probe
+G29                                                  ; Probe the heatbed and generate heightmap
+M98 P"retractprobe.g"                                ; Retract the probe
+M98 P"config/probe/probe_config.g"                   ; Call probe_config_fast.g module (Switch to Default Probe Mode)
+G91                                                  ; Relative positioning
+G1 Z5 F6000                                          ; Raise Z 5mm
+G90                                                  ; Absolute positioning
+G1 X{move.axes[0].min} Y{move.axes[1].min} F10000    ; Go home
+G91                                                  ; Relative positioning
+G1 Z-5 F6000                                         ; Return Z 5mm
+G90                                                  ; Absolute positioning

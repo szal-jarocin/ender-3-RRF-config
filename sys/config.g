@@ -24,8 +24,8 @@ M350 X16 Y16 Z16 E16 I1                        ; configure microstepping with in
 M92 X80.00 Y80.00 Z400.00 E410.00              ; set steps per mm
 M566 X900.00 Y900.00 Z60.00 E120.00            ; set maximum instantaneous speed changes (mm/min)
 M203 X12000.00 Y12000.00 Z600.00 E1200.00      ; set maximum speeds (mm/min)
-M201 X1500.00 Y1500.00 Z20.00 E250.00            ; set accelerations (mm/s^2)
-M906 X760 Y760 Z760 E900 I30               ; set motor currents (mA) and motor idle factor in per cent
+M201 X1500.00 Y1500.00 Z20.00 E250.00          ; set accelerations (mm/s^2)
+M906 X760 Y760 Z760 E900 I30                   ; set motor currents (mA) and motor idle factor in per cent
 M84 S30                                        ; Set idle timeout
 
 ; Axis Limits
@@ -33,8 +33,8 @@ M84 S30                                        ; Set idle timeout
 ;M208 X0 Y0 Z0 S1                               ; set axis minima
 ;M208 X235 Y235 Z250 S0                         ; set axis maxima
 ;HeroMe
-M208 X0 Y-15 Z0 S1                               ; set axis minima
-M208 X250 Y220 Z250 S0                         ; set axis maxima
+M208 X0 Y-5 Z0 S1                               ; set axis minima
+M208 X242.5 Y230 Z250 S0                        ; set axis maxima
 
 
 ; Endstops

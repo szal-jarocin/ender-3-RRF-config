@@ -38,6 +38,10 @@ image V6 L"imgs/vline.img"
 button W42 V6 T"Abort" A"menu confirmAbort"
 
 
+
+; --------------- Scroll Button ---------------
+button R25 C6 F1 T" « " A"return"
+
 ; --------------- Main Overview ---------------
 image R11 C0 L"imgs/hline.img"
 
@@ -54,9 +58,6 @@ image R38 C40 L"imgs/zstep.img"
 alter C65 D2 N521 W25 H2
 text T" mm"
 
-
-; --------------- Scroll Button ---------------
-button R25 C6 F1 T" « " A"return"
 
 
 ; --------------- Axis Positions ---------------

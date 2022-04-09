@@ -7,6 +7,6 @@ G1 E-10 F3600  ; retract 10mm of filament
 G91            ; relative positioning
 G1 Z5 F360     ; lift Z by 5mm
 G90            ; absolute positioning
-G1 X{move.axes[0].min} Y{move.axes[1].max} F10000 ; go to X=min Y=max
+G1 X{move.axes[0].min} Y{move.axes[1].max} F10000 ; go to X=0 Y=235
 
 M118 P2 S"//action::paused"

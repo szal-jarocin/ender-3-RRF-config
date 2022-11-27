@@ -1,11 +1,12 @@
 ; stealthChop tuning
-M18 E0                ; motors off
+M83                  ; relative extrusion
+M18 E0               ; motors off
 M915 P3 T80          ; set coolstep threshold (disables stall detection)
 M569 P3 D3 V80       ; set stealthChop mode, set tpwmthrs
-M569 P3
 
+G92 E0               ; reset extruder
 G1 E0.02             ; small move to energise Z motor
 G4 P250              ; pause
 G1 E-5               ; small retraction
 G1 E5                ; small extrusion
-M569 P3
+G92 E0               ; reset extruder

@@ -1,9 +1,9 @@
-M290 R0 S0                                           ;Reset baby stepping
-
 if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
 	G28
 else
 	G28 Z
+
+M290 R0 S0
 
 G91                                                  ;Relative positioning
 G1 Z5 F6000                                          ;Raise Z 5mm

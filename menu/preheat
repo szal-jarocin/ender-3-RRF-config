@@ -39,7 +39,7 @@ image R11 C0 L"imgs/hline.img"
 ; --------------- Preheat Bed ---------------
 image R14 C6 L"imgs/bed.img"
 button C23 W22 T"Off" A"M140 S0"
-button C47 W38 T"60" A"M140 S60"
+button C47 W38 T"62" A"M140 S62"
 button C87 W38 T"70" A"M140 S70"
 
 

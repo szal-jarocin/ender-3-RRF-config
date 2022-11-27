@@ -17,8 +17,8 @@ M586 P2 S0                                     ; disable Telnet
 ; Drives
 M569 P0 S0 D3                                  ; physical drive 0 goes forwards using default driver timings
 M569 P1 S0 D3                                  ; physical drive 1 goes forwards using default driver timings
-M569 P2 S1 D3                                  ; physical drive 2 goes forwards using default driver timings
-M569 P3 S0 D2                                  ; physical drive 3 goes forwards using default driver timings
+M569 P2 S1 D3                                  ; physical drive 2 goes backwards using default driver timings
+M569 P3 S0 D2                                  ; physical drive 3 goes backwards using default driver timings
 M584 X0 Y1 Z2 E3                               ; set drive mapping
 M350 X16 Y16 Z16 E16 I1                        ; configure microstepping with interpolation
 M92 X80.00 Y80.00 Z400.00 E410.00              ; set steps per mm
@@ -65,9 +65,9 @@ M308 S2 Y"drivers" A"DRIVERS"
 M308 S3 y"mcu-temp" A"MCU"
 
 ; Fans
-M950 F0 C"fan0" Q1000                               ; create fan 0 on pin fan0 and set its frequency
+M950 F0 C"fan0" Q100                                ; create fan 0 on pin fan0 and set its frequency
 M106 P0 C"Part Cooling Fan" S0 H-1                  ; set fan 0 value. Thermostatic control is turned off
-M950 F1 C"fan1" Q1000                               ; create fan 1 on pin fan1 and set its frequency
+M950 F1 C"fan1"                                     ; create fan 1 on pin fan1 and set its frequency
 M106 P1 C"Mainboard Fan" H2:3 L0.2 X1 T35:50        ; set fan 1 value. Thermostatic control is turned on
 
 ; Tools
@@ -90,3 +90,5 @@ M552 S1                                        ; enable network
 M150 X2
 
 T0 P0
+
+M98 P"/macros/LED ON WARM"
